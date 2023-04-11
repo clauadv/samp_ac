@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="production|Win32">
+      <Configuration>production</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\console\console.hpp" />
+    <ClInclude Include="src\guard\guard.hpp" />
+    <ClInclude Include="src\samp_ac.hpp" />
+    <ClInclude Include="src\pch.hpp" />
+    <ClInclude Include="src\io\io.hpp" />
+    <ClInclude Include="src\pch\pch.hpp" />
+    <ClInclude Include="src\section\section.hpp" />
+    <ClInclude Include="third_party\lazy_importer\lazy_importer.hpp" />
+    <ClInclude Include="third_party\sk_crypter\sk_crypter.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.md" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{313E5779-3B08-46EE-981B-E8C9D988FBC4}</ProjectGuid>
+    <RootNamespace>ue4_base</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>samp_ac</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='production|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='production|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\intermediates\</IntDir>
+    <TargetExt>.asi</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='production|Win32'">
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='production|Win32'">
+    <ClCompile>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
