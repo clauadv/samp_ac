@@ -5,7 +5,7 @@ namespace section {
 	public:
 		void* m_region{ nullptr };
 		int m_size{ 0 };
-		std::string m_name{ sk("bugged e mai tare") };
+		std::string m_name{ sk("multa muie newt copilu minune") };
 		std::vector<int> m_original{};
 
 		c_section(void* region, const int size, const std::string& name) {
