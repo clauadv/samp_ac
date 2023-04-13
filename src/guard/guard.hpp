@@ -27,7 +27,7 @@ namespace guard {
 		// e9  jmp <hk> adica ce folosesc toti astia de vand s0beit
 
 		if (static_cast<int>(*static_cast<unsigned char*>(address)) == 0xe9) {
-			std::cout << std::string{ sk("[samp_ac] found jmp at 0x") } << std::hex << address << " or " << address << std::endl;
+			std::cout << std::string{ sk("[samp_ac] found jmp at 0x") } << address << std::endl;
 			return true;
 		}
 
