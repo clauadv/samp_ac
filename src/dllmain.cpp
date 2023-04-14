@@ -10,19 +10,14 @@ void watcher_thread() {
 }
 
 void main_thread() {
+	// initialize console
 	console::intialize();
 
-	const auto samp = li_fn(GetModuleHandleA).safe()(std::string{ sk("samp.dll") }.c_str());
+	// initialize hooks
+	hooks::initialize();
 
-	const auto fire_instant_hit = reinterpret_cast<unsigned long long>(samp) + 0xb05a0;
-	const auto add_bullet = reinterpret_cast<unsigned long long>(samp) + 0xa0bb0;
-	const auto rpc = reinterpret_cast<unsigned long long>(samp) + 0x30b30;
-	const auto send_rpc = reinterpret_cast<unsigned long long>(samp) + 0x307f0;
-
-	guard::add(reinterpret_cast<void*>(fire_instant_hit), 0xe3, std::string{ sk("fire_instant_hit")});
-	guard::add(reinterpret_cast<void*>(add_bullet), 0x51, std::string{ sk("add_bullet") });
-	guard::add(reinterpret_cast<void*>(rpc), 0xdc, std::string{ sk("rpc") });
-	guard::add(reinterpret_cast<void*>(send_rpc), 0x89, std::string{ sk("send_rpc") });
+	// initialize guard
+	guard::initialize();
 }
 
 bool DllMain(const HMODULE module, const unsigned int call_reason, void* reserved [[maybe_unused]] ) {

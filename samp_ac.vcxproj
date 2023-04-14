@@ -9,17 +9,32 @@
   <ItemGroup>
     <ClInclude Include="src\console\console.hpp" />
     <ClInclude Include="src\guard\guard.hpp" />
+    <ClInclude Include="src\hooks\hooks.hpp" />
     <ClInclude Include="src\samp_ac.hpp" />
     <ClInclude Include="src\pch.hpp" />
     <ClInclude Include="src\io\io.hpp" />
     <ClInclude Include="src\pch\pch.hpp" />
     <ClInclude Include="src\section\section.hpp" />
     <ClInclude Include="third_party\lazy_importer\lazy_importer.hpp" />
+    <ClInclude Include="third_party\min_hook\include\min_hook.hpp" />
+    <ClInclude Include="third_party\min_hook\src\buffer.h" />
+    <ClInclude Include="third_party\min_hook\src\hde\hde32.h" />
+    <ClInclude Include="third_party\min_hook\src\hde\hde64.h" />
+    <ClInclude Include="third_party\min_hook\src\hde\pstdint.h" />
+    <ClInclude Include="third_party\min_hook\src\hde\table32.h" />
+    <ClInclude Include="third_party\min_hook\src\hde\table64.h" />
+    <ClInclude Include="third_party\min_hook\src\trampoline.h" />
     <ClInclude Include="third_party\sk_crypter\sk_crypter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\hooks\disable_thread_library_calls\disable_thread_library_calls.cpp" />
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="third_party\min_hook\src\buffer.c" />
+    <ClCompile Include="third_party\min_hook\src\hde\hde32.c" />
+    <ClCompile Include="third_party\min_hook\src\hde\hde64.c" />
+    <ClCompile Include="third_party\min_hook\src\hook.c" />
+    <ClCompile Include="third_party\min_hook\src\trampoline.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />
@@ -46,13 +61,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='production|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)</OutDir>
+    <OutDir>E:\Games\la misto</OutDir>
     <IntDir>$(SolutionDir)$(Configuration)\intermediates\</IntDir>
     <TargetExt>.asi</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='production|Win32'">
     <ClCompile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='production|Win32'">

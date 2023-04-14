@@ -5,7 +5,6 @@ namespace guard {
 
 	__forceinline bool add(void* region, int size, const std::string& name) {
 		guard::m_sections.emplace_back(reinterpret_cast<void*>(region), size, name);
-		std::cout << std::string{ sk("[samp_ac] guarding ") } << name << std::string{ sk(" -> 0x") } << std::hex << reinterpret_cast<unsigned long long>(region) << std::endl;
 
 		return true;
 	}
@@ -28,10 +27,27 @@ namespace guard {
 
 		if (static_cast<int>(*static_cast<unsigned char*>(address)) == 0xe9) {
 			std::cout << std::string{ sk("[samp_ac] found jmp at 0x") } << address << std::endl;
+
 			return true;
 		}
 
 		return false;
+	}
+
+	__forceinline void initialize() {
+		const auto samp = li_fn(GetModuleHandleA).safe()(std::string{ sk("samp.dll") }.c_str());
+
+		const auto fire_instant_hit = reinterpret_cast<unsigned long long>(samp) + 0xb05a0;
+		const auto add_bullet = reinterpret_cast<unsigned long long>(samp) + 0xa0bb0;
+		const auto rpc = reinterpret_cast<unsigned long long>(samp) + 0x30b30;
+		const auto send_rpc = reinterpret_cast<unsigned long long>(samp) + 0x307f0;
+
+		guard::add(reinterpret_cast<void*>(fire_instant_hit), 0xe3, std::string{ sk("fire_instant_hit") });
+		guard::add(reinterpret_cast<void*>(add_bullet), 0x51, std::string{ sk("add_bullet") });
+		guard::add(reinterpret_cast<void*>(rpc), 0xdc, std::string{ sk("rpc") });
+		guard::add(reinterpret_cast<void*>(send_rpc), 0x89, std::string{ sk("send_rpc") });
+
+		std::cout << std::string{ sk("[samp_ac] guard initialized") } << std::endl;
 	}
 
 	__forceinline void watch() {
