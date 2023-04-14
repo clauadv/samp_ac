@@ -6,6 +6,7 @@
 #include <thread>
 #include <vector>
 #include <algorithm>
+#include <filesystem>
 
 #include <third_party/lazy_importer/lazy_importer.hpp>
 #include <third_party/sk_crypter/sk_crypter.hpp>

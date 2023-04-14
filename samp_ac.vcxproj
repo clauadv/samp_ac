@@ -29,6 +29,7 @@
   <ItemGroup>
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\hooks\disable_thread_library_calls\disable_thread_library_calls.cpp" />
+    <ClCompile Include="src\hooks\load_library_a\load_library_a.cpp" />
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="third_party\min_hook\src\buffer.c" />
     <ClCompile Include="third_party\min_hook\src\hde\hde32.c" />
